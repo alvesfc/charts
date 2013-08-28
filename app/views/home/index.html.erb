@@ -9,20 +9,20 @@
 
 $(function () {
   new Highcharts.Chart({
-    chart: { renderTo: 'orders_chart' },
+    chart: { renderTo: 'prices_chart' },
     title: { text: 'Orders by Day' },
-    xAxis: { type: 'datetime' },
+    xAxis: { type: 'time' },
     yAxis: {
       title: { text: 'Dollars' }
     },
     series: [{
-      pointInterval: <%= 1.day * 1000 %>,
-      pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
-       data:  <%= []%>
+      pointInterval: <%= 1%>,
+      pointStart: <%= 0 %>,
+      data: <%= total_on %>
     }]
   });
 });
 
 </script>
 
-<div id="orders_chart" style="width: 800px; height: 400px;"></div>
+<div id="prices_chart" style="width: 800px; height: 400px;"></div>
